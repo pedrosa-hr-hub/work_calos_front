@@ -5,18 +5,18 @@
           <center><h4>Login</h4></center>
         </div>
         <div class="card-body">
-          <form action="" method="post">
+          <form v-on:submit.prevent="submitForm">
             <label class="mt-1" for="voto">
               Usuário:
             </label>
             <br>
-            <input type="text">
+            <input type="text" v-model="form.user">
             <br>
             <label class="mt-1" for="voto">
               Senha:
             </label>
             <br>
-            <input type="password">
+            <input type="password" v-model="form.pass">
             <br>
             <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
           </form>
@@ -26,7 +26,32 @@
 </template>
 
 <script>
+
+  import axios from 'axios';
+
 export default {
   name: "Login",
+  data(){
+    return{
+      form: {
+          user: '',
+          pass: '',
+      }
+    }
+  },
+  methods: {
+    submitForm(){
+      axios.post('https://localhost/8000/voto', this.form)
+      .then((res) =>{
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(()=>{
+
+      })
+    }
+  }
 }
 </script>

@@ -5,45 +5,45 @@
       <center><h4>Inserir Voto</h4></center>
     </div>
     <div class="card-body">
-      <form action="" method="post">
+      <form v-on:submit.prevent="submitForm">
 
-      <label class="mt-1" for="voto">
-        Voto:
-      </label>
+        <label class="mt-1" for="voto" >
+          Voto:
+        </label>
+        <br>
+        <input type="text" name="voto" v-model="form.voto">
+        <br>
 
-      <br>
-      <input type="text">
-      <br>
+        <label class="mt-1" for="email">
+          E-mail:
+        </label>
+        <br>
+        <input type="email" name="email" v-model="form.email">
+        <br>
 
-      <label class="mt-1" for="voto">
-        E-mail:
-      </label>
-      <br>
-      <input type="email">
-      <br>
+        <label class="mt-1" for="nome">
+          Nome:
+        </label>
+        <br>
+        <input type="text" name="nome" v-model="form.nome">
+        <br>
 
-      <label class="mt-1" for="voto">
-        Nome:
-      </label>
-      <br>
-      <input type="text">
-      <br>
+        <label class="mt-1" for="cidade">
+          Cidade:
+        </label>
+        <br>
+        <input type="text" name="cidade" v-model="form.cidade">
+        <br>
 
-      <label class="mt-1" for="voto">
-        Cidade:
-      </label>
-      <br>
-      <input type="text">
-      <br>
+        <label class="mt-1" for="estado">
+          Estado:
+        </label>
+        <br>
+        <input type="text" name="estado" v-model="form.estado">
+        <br>
 
-      <label class="mt-1" for="voto">
-        Estado:
-      </label>
-      <br>
-      <input type="text">
-      <br>
+        <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
 
-      <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
       </form>
     </div>
   </div>
@@ -53,7 +53,32 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   name: "Formulario",
+  data(){
+    return{
+      form: {
+          voto: '',
+          email: '',
+          nome: '',
+          cidade: '',
+          estado: '',
+      }
+    }
+  },
+  methods: {
+    submitForm(){
+      axios.post('/V1/voto', this.form)
+      .then((res) =>{
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+  }
 }
 </script>
