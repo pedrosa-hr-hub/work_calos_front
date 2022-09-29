@@ -10,13 +10,13 @@
               Usuário:
             </label>
             <br>
-            <input type="text" v-model="form.user">
+            <input type="text" v-model="form.user" placeholder="Insira seu e-mail">
             <br>
             <label class="mt-1" for="voto">
               Senha:
             </label>
             <br>
-            <input type="password" v-model="form.pass">
+            <input type="password" v-model="form.pass" placeholder="*****">
             <br>
             <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
           </form>
