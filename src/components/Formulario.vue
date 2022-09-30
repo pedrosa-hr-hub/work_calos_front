@@ -42,7 +42,7 @@
         <input type="text" name="estado" v-model="form.estado" placeholder="Insira seu estado">
         <br>
 
-        <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
+        <button class="mt-3 btn btn-success" type="submit">Enviar Resposta e Ver Dados</button>
 
       </form>
     </div>
@@ -55,6 +55,7 @@
 <script>
 
 import axios from 'axios';
+import router from '@/router';
 
 export default {
   name: "Formulario",
@@ -70,18 +71,24 @@ export default {
     }
   },
   methods: {
+    alert_sucess(response){
+        alert(response);
+    },
+    alert_error(error){
+      alert(error);
+    },
     submitForm(){
       axios.post('/V1/voto', this.form)
       .then((res) =>{
-        if (res.data == null) {
-          console.log("VOTO FOI")
-        } else {
-          console.log("VOTO NÃO FUNFO")
-        }
+          this.alert_sucess(res.statusText);
+          this.chageRoute('/login');
       })
       .catch((error) => {
-        console.log(error);
+          this.alert_error(error);
       })
+    },
+    chageRoute(route){
+      router.push(route);
     }
   }
 }

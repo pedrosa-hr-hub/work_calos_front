@@ -27,7 +27,8 @@
 
 <script>
 
-  import axios from 'axios';
+import router from '@/router';
+import axios from 'axios';
 
 export default {
   name: "Login",
@@ -40,16 +41,22 @@ export default {
     }
   },
   methods: {
+    alert_sucess(response){
+        alert(response);
+    },
+    alert_error(error){
+      alert(error);
+    },
+    chageRoute(route){
+      router.push(route);
+    },
     submitForm(){
-      axios.post('https://localhost/8000/voto', this.form)
-      .then((res) =>{
-        console.log(res);
+      axios.post('/V1/user', this.form)
+      .then(() =>{
+        this.chageRoute('/dados');
       })
       .catch((error) => {
-        console.log(error);
-      })
-      .finally(()=>{
-
+        this.alert_error(error);
       })
     }
   }
