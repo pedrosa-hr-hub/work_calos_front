@@ -18,7 +18,7 @@
             <br>
             <input type="password" v-model="form.pass" placeholder="*****">
             <br>
-            <button class="mt-1 btn btn-success" type="submit"> Enviar</button>
+            <button class="mt-1 btn btn-success" type="submit">Entrar</button>
           </form>
         </div>
     </div>

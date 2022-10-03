@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Formulario from "../components/Formulario.vue";
 import Login from "../components/Login.vue";
-import Graficos from "../components/Graficos.vue";
+import Sintetico from "../components/Sintetico.vue";
 import Dados from "../components/Dados.vue";
 
 const routes = [
     {path: '/login', name: 'Login', component: Login},
     {path: '/', name: 'Formulario', component: Formulario},
     {path: '/dados', name: 'Dados', component: Dados},
-    {path: '/graficos', name: 'Graficos', component: Graficos},
+    {path: '/sintetico', name: 'Sintetico', component: Sintetico},
 ]
 
 const router = createRouter({

@@ -6,7 +6,9 @@
         </div>
         <div class="card-body">
           <div>
-            <center><button @click="getVoto" class="mt-1 btn btn-success"> Ver Dados</button></center>
+            <center><button @click="getVoto" class="mt-1 btn btn-success">Ver Dados Detalhados</button></center>
+            <br>
+            <center><button @click="chageRoute('/graficos')" class="mt-1 btn btn-warning">Ver Dados Sintéticos</button></center>
             <br>
             <div v-for="voto in voto" :key="voto.id">
               <h3>{{voto.id}}.{{voto.voto}}</h3>
@@ -24,6 +26,7 @@
 
 <script>
 import axios from 'axios';
+import router from '@/router';
 
 export default {
   name: "Dados",
@@ -33,6 +36,9 @@ export default {
     }
   },
   methods:{
+    chageRoute(route){
+      router.push(route);
+    },
     getVoto(){
       axios.get("/V1/consulta")
       .then((response) => {
