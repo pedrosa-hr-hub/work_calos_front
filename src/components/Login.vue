@@ -7,16 +7,20 @@
         <div class="card-body">
           <form v-on:submit.prevent="submitForm">
             <label class="mt-1" for="voto">
-              Usuário:
+              E-mail:
             </label>
             <br>
             <input type="text" v-model="form.user" placeholder="Insira seu e-mail">
+            <br>
+            <font size="1px">O e-mail é o qual você realizou o voto :)</font>
             <br>
             <label class="mt-1" for="voto">
               Senha:
             </label>
             <br>
             <input type="password" v-model="form.pass" placeholder="*****">
+            <br>
+            <font size="1px">A senha é seu voto! :)</font>
             <br>
             <button class="mt-1 btn btn-success" type="submit">Entrar</button>
           </form>

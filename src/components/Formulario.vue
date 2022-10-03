@@ -2,11 +2,11 @@
 <div class="container mt-3">
   <div class="card">
     <div class="card-header card text-white bg-dark">
-      <center><h4>Inserir Voto</h4></center>
+      <center><h4>Qual cerveja é melhor?</h4></center>
+      <center><small>Escolha entre Heineken ou Budweiser</small></center>
     </div>
     <div class="card-body">
       <form v-on:submit.prevent="submitForm">
-
         <label class="mt-1" for="voto" >
           Voto:
         </label>
@@ -45,6 +45,8 @@
         <button class="mt-3 btn btn-success" type="submit">Enviar Resposta e Ver Dados</button>
 
       </form>
+
+      <p class="mt-5">Para ver os dados é <b>OBRIGATÓRIO</b> ter votado!</p>
     </div>
   </div>
 </div>

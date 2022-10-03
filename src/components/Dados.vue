@@ -8,7 +8,7 @@
           <div>
             <center><button @click="getVoto" class="mt-1 btn btn-success">Ver Dados Detalhados</button></center>
             <br>
-            <center><button @click="chageRoute('/graficos')" class="mt-1 btn btn-warning">Ver Dados Sintéticos</button></center>
+            <center><button @click="chageRoute('/sintetico')" class="mt-1 btn btn-warning">Ver Dados Sintéticos</button></center>
             <br>
             <div v-for="voto in voto" :key="voto.id">
               <h3>{{voto.id}}.{{voto.voto}}</h3>
