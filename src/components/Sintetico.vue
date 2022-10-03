@@ -32,7 +32,7 @@ export default {
   },
   methods:{
     getVotoPercent(){
-      axios.get("/V1/percent")
+      axios.get("/V1/sintect")
       .then((response) => {
         console.log(response.data);
         this.percent = response.data;
